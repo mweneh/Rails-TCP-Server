@@ -27,7 +27,7 @@ class TcpServer
 
         def handle_client(client)
             rank = @clients.index(client)
-            
+
             loop do
                 message = client.gets.strip
                 command, *params = message.split(' ')
@@ -43,5 +43,14 @@ class TcpServer
                 end
               end
         end
+
+        def execute_command(client, rank, target_rank)
+            if target_rank < rank
+              client.puts "Command executed by client #{rank}"
+              @clients[target_rank].puts "EXECUTED #{rank}"
+            else
+              client.puts "Command rejected by client #{rank}"
+            end
+          end
       end
 end  
