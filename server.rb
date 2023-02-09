@@ -27,6 +27,21 @@ class TcpServer
 
         def handle_client(client)
             rank = @clients.index(client)
+            
+            loop do
+                message = client.gets.strip
+                command, *params = message.split(' ')
+          
+                case command
+                when 'EXECUTE'
+                  execute_command(client, rank, params[0].to_i)
+                when 'DISCONNECT'
+                  disconnect_client(client, rank)
+                  break
+                else
+                  puts "Unknown command from client #{rank}: #{message}"
+                end
+              end
         end
       end
 end  
