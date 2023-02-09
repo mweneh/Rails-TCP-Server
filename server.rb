@@ -65,6 +65,7 @@ class TcpServer
                 c.puts "PROMOTED TO RANK #{i}" if i > rank
               end
             end
-          end 
+        end
       
-end  
+        server = TcpServer.new(3002, 5)
+        server.start
