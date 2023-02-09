@@ -10,13 +10,15 @@ puts client.gets.strip
 loop do
     message = gets.strip
     client.puts message
-  
+
     case message
     when 'EXECUTE'
-      puts client.gets.strip
+        puts client.gets.strip
     when 'DISCONNECT'
-      break
+        break
     else
-      puts "Unknown command: #{message}"
+        puts "Unknown command: #{message}"
     end
-  end
+end
+
+client.close
