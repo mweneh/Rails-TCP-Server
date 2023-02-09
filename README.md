@@ -16,7 +16,7 @@ $ git clone https://github.com/mweneh/Rails-TCP-Server.git
 
 
 
-$ cd ruby-tcp-server
+$ cd  Rails-TCP-Server
 
     Start the server by running the server.rb file.
 
