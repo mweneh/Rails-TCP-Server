@@ -24,5 +24,9 @@ class TcpServer
             client.close
           end
         end
+
+        def handle_client(client)
+            rank = @clients.index(client)
+        end
       end
 end  
