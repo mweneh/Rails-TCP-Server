@@ -52,5 +52,11 @@ class TcpServer
               client.puts "Command rejected by client #{rank}"
             end
           end
+          
+          def disconnect_client(client, rank)
+            puts "Client #{rank} Disconnected!"
+            @clients.delete(client)
+            client.close
+          end 
       end
 end  
