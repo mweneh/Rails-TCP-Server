@@ -1,3 +1,5 @@
+require 'socket'
+
 class TcpServer
     attr_reader :clients, :max_clients
   
@@ -63,5 +65,5 @@ class TcpServer
               end
             end
           end 
-      end
+      
 end  
