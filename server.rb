@@ -52,11 +52,16 @@ class TcpServer
               client.puts "Command rejected by client #{rank}"
             end
           end
-          
+
           def disconnect_client(client, rank)
             puts "Client #{rank} Disconnected!"
             @clients.delete(client)
             client.close
+
+            @clients.each_with_index do |c, i|
+                c.puts "PROMOTED TO RANK #{i}" if i > rank
+              end
+            end
           end 
       end
 end  
